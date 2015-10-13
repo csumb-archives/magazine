@@ -1,0 +1,15 @@
+{
+  "name": "csumb-news-archive",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  },
+  "dependencies": {
+    "cheerio": "^0.19.0",
+    "csv": "^0.4.6",
+    "htmltidy": "0.0.6",
+    "moment": "^2.10.6",
+    "path": "^0.12.7",
+    "underscore": "^1.8.3",
+    "walk": "^2.3.9"
+  }
+}
