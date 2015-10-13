@@ -48,8 +48,9 @@ walker.on("file", function(root, fileStat, next) {
               _.each(page, function(value, index) {
                 pageString = pageString.replace('{{' + index + '}}', value);
               });
-              fs.writeFile('_posts/' + postdate.format('YYYY[-]MM[-]DD') + '-' + fileStat.name, pageString, function(err) {
-                console.log('Generated ' + postdate.format('YYYY[-]MM[-]DD') + '-' + fileStat.name);
+              var filename = fileStat.name.replace(/\-news\-index=([0-9]*)/, '');
+              fs.writeFile('_posts/' + postdate.format('YYYY[-]MM[-]DD') + '-' + filename, pageString, function(err) {
+                console.log('Generated ' + postdate.format('YYYY[-]MM[-]DD') + '-' + filename);
               });
 
             }
