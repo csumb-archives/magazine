@@ -10,7 +10,8 @@ var format = ['---',
   'layout: archive',
   'title: {{title}}',
   'date: {{date}}',
-  'tags: {{tags}}',
+  'tags: ',
+  ' - {{tags}}',
   '---',
   '{{content}}'].join("\n");
 
@@ -34,13 +35,13 @@ walker.on("file", function(root, fileStat, next) {
             $('#content img').remove();
             var tags = [];
             $('.terms [rel=tag]').each(function() {
-              tags.push($(this).html());
+              tags.push($(this).html().replace(',', ''));
             });
             page = {
               title : title,
               content : $('#content').first().html(),
               date : postdate.format('MMMM D YYYY'),
-              tags : tags.concat(' ')
+              tags : tags.join("\n" + ' - ')
             };
             if(page.content) {
               pageString = format;
